@@ -20,23 +20,6 @@ ListingController = ($scope, $state, $sce, SharedService, ListingService) ->
     $scope.activeOptionsClass = if $scope.activeOptionsClass == 'active' then '' else 'active'
     $scope.showApplicationOptions = !$scope.showApplicationOptions
 
-  # --- REFACTORED THE BELOW INTO toggleTable and isActiveTable
-  # --- to remove before PR+merging this branch
-  # $scope.showIncomeTable = false
-  # $scope.toggleIncomeTable = () ->
-  #   $scope.activeIncomeClass = if $scope.activeIncomeClass == 'active' then '' else 'active'
-  #   $scope.showIncomeTable = !$scope.showIncomeTable
-
-  # $scope.showStudioTable = false
-  # $scope.toggleStudioTable = () ->
-  #   $scope.activeStudioClass = if $scope.activeStudioClass == 'active' then '' else 'active'
-  #   $scope.showStudioTable = !$scope.showStudioTable
-
-  # $scope.show1BedTable = false
-  # $scope.toggle1BedTable = () ->
-  #   $scope.active1BedClass = if $scope.active1BedClass == 'active' then '' else 'active'
-  #   $scope.show1BedTable = !$scope.show1BedTable
-
   $scope.toggleTable = (table) ->
     $scope["active#{table}Class"] = if $scope["active#{table}Class"] then '' else 'active'
 
@@ -85,8 +68,7 @@ ListingController = ($scope, $state, $sce, SharedService, ListingService) ->
     lotteryDate <= today
 
   $scope.lotteryResultsAvailable = (listing) ->
-    # to replace below with something like listing.Lottery_Results.length > 0
-    false
+    listing.Lottery_Members && listing.Lottery_Members.length > 0
 
   $scope.lotteryDateVenueAvailable = (listing) ->
     (listing.Lottery_Date != undefined &&
