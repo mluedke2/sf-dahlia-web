@@ -9,15 +9,17 @@ header.lead-header.bg-attention-tint
             | {{ hasEligibilityFilters() ? 'Edit Eligibility' : 'Estimate Eligibility' }}
 
 /// Matches results bar
-section.results-bar.bg-mist.padding-top
+section.results-bar.bg-mist.padding-top.padding-bottom
   .row
     .medium-12.columns
       p
         | Showing Matches for
-        strong 3 people
-        | and
-        strong $2400/month
+        strong  3 people*
+        |  and
+        strong  $2400/month
         a.button.primary ui-sref="dahlia.eligibility-estimator" Edit Eligibility
+      p.t-micro.c-charcoal.margin-bottom--half
+        | * Occupancy shown does not include children under 6.
 
 
 section.row ng-if="!openListings.length"
