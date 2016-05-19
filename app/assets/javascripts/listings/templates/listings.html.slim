@@ -14,12 +14,12 @@ section.results-bar.bg-mist.padding-top.padding-bottom
     .medium-12.columns
       p
         | Showing Matches for
-        strong()  {{ getEligibilityFilters().household_size }} {{ getEligibilityFilters().household_size > 1 ? 'people' : 'person' }}*
+        strong()  {{ getEligibilityFilters().household_size }} {{ getEligibilityFilters().household_size > 1 ? 'people' : 'person' }}<span style="color:#0077da">*</span>
         |  and
         strong()  ${{ getEligibilityFilters().income_total }}/{{ getEligibilityFilters().income_timeframe == 'per_month' ? 'month' : 'year' }}
         a.button.primary ui-sref="dahlia.eligibility-estimator" Edit Eligibility
       p.t-micro.c-charcoal.margin-bottom--half
-        | * Occupancy shown does not include children under 6.
+        | <span style="color:#0077da">*</span> Occupancy shown does not include children under 6.
 
 
 section.row ng-if="!openListings.length"
