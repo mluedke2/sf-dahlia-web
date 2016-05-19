@@ -14,9 +14,9 @@ section.results-bar.bg-mist.padding-top.padding-bottom
     .medium-12.columns
       p
         | Showing Matches for
-        strong  3 people*
+        strong()  {{ getEligibilityFilters().household_size }} {{ getEligibilityFilters().household_size > 1 ? 'people' : 'person' }}*
         |  and
-        strong  $2400/month
+        strong()  ${{ getEligibilityFilters().income_total }}/{{ getEligibilityFilters().income_timeframe == 'per_month' ? 'month' : 'year' }}
         a.button.primary ui-sref="dahlia.eligibility-estimator" Edit Eligibility
       p.t-micro.c-charcoal.margin-bottom--half
         | * Occupancy shown does not include children under 6.

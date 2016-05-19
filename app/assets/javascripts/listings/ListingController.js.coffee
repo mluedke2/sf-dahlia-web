@@ -54,6 +54,9 @@ ListingController = ($scope, $state, $sce, SharedService, ListingService) ->
     url = "https://www.google.com/maps/embed/v1/place?key=#{api_key}&q=#{$scope.formattedAddress(listing)}"
     $sce.trustAsResourceUrl(url)
 
+  $scope.getEligibilityFilters = ->
+    ListingService.eligibility_filters
+
   $scope.hasEligibilityFilters = ->
     ListingService.hasEligibilityFilters()
 
